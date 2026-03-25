@@ -1,0 +1,31 @@
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{caption}
+\geometry{margin=2.5cm}
+
+% Force table borders
+\setlength{\arrayrulewidth}{0.5pt}
+\renewcommand{\arraystretch}{1.2}
+
+% Page breaks for figures
+\usepackage{placeins}
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{UNIX V6 Technical Audit}
+\lhead{Assignment 02}
+\cfoot{\thepage}
