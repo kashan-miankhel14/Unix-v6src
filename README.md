@@ -204,7 +204,7 @@ git push -u origin main
 
 **Name:** Kashan Saeed  
 **Email:** kashanmiankhel922@gmail.com  
-**LinkedIn:** Kashan Saeed
+**LinkedIn:** https://www.linkedin.com/in/kashan-saeed-942548375/
 **GitHub:** https://github.com/kashan-miankhel14
 
 ---
