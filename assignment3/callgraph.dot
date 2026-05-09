@@ -1,0 +1,28 @@
+digraph CallGraph {
+    node [shape=box, style=filled, fillcolor=lightblue];
+    edge [color=blue];
+    
+    // Main function
+    main [label="main(argc, argv)", fillcolor=yellow, style=bold];
+    
+    // Library calls
+    printf1 [label="printf(\"arg count\")"];
+    printf2 [label="printf(\"bad mode\")"];
+    exit1 [label="exit(1)"];
+    exit2 [label="exit(count)"];
+    chmod [label="chmod(argv, m)"];
+    perror [label="perror(argv)"];
+    
+    // Call relationships
+    main -> printf1 [label="argc < 3"];
+    main -> exit1 [label="error"];
+    main -> printf2 [label="c out of range"];
+    main -> exit1 [label="bad mode"];
+    main -> chmod [label="change permissions"];
+    chmod -> perror [label="on error"];
+    main -> exit2 [label="return"];
+    
+    // Control flow labels
+    main -> main [label="while loop", style=dashed, color=red];
+    main -> main [label="for loop", style=dashed, color=red];
+}

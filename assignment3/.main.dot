@@ -1,0 +1,37 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x561f77ec6a60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b59970", fontname="Courier",label="{2:\l|  %3 = icmp slt i32 %0, 3\l  br i1 %3, label %4, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x561f77ec6a60:s0 -> Node0x561f77ec9350;
+	Node0x561f77ec6a60:s1 -> Node0x561f77ec93b0;
+	Node0x561f77ec9350 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7bca170", fontname="Courier",label="{4:\l|  %5 = call i32 (ptr, ...) @printf(ptr noundef @.str)\l  call void @exit(i32 noundef 1) #5\l  unreachable\l}"];
+	Node0x561f77ec93b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7bca170", fontname="Courier",label="{6:\l|  %7 = getelementptr inbounds ptr, ptr %1, i64 1\l  %8 = load ptr, ptr %7, align 8\l  %9 = getelementptr inbounds i8, ptr %8, i64 0\l  %10 = load i8, ptr %9, align 1\l  br label %11\l}"];
+	Node0x561f77ec93b0 -> Node0x561f77eca3f0;
+	Node0x561f77eca3f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{11:\l|  %.02 = phi i32 [ 0, %6 ], [ %26, %22 ]\l  %.01 = phi i8 [ %10, %6 ], [ 1, %22 ]\l  %12 = sext i8 %.01 to i32\l  %13 = icmp ne i32 %12, 0\l  br i1 %13, label %14, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x561f77eca3f0:s0 -> Node0x561f77eca8a0;
+	Node0x561f77eca3f0:s1 -> Node0x561f77eca940;
+	Node0x561f77eca8a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{14:\l|  %15 = sext i8 %.01 to i32\l  %16 = icmp slt i32 %15, 48\l  br i1 %16, label %20, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x561f77eca8a0:s0 -> Node0x561f77ecab30;
+	Node0x561f77eca8a0:s1 -> Node0x561f77ecab90;
+	Node0x561f77ecab90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{17:\l|  %18 = sext i8 %.01 to i32\l  %19 = icmp sgt i32 %18, 55\l  br i1 %19, label %20, label %22\l|{<s0>T|<s1>F}}"];
+	Node0x561f77ecab90:s0 -> Node0x561f77ecab30;
+	Node0x561f77ecab90:s1 -> Node0x561f77eca520;
+	Node0x561f77ecab30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670", fontname="Courier",label="{20:\l|  %21 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)\l  call void @exit(i32 noundef 1) #5\l  unreachable\l}"];
+	Node0x561f77eca520 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{22:\l|  %23 = mul nsw i32 %.02, 8\l  %24 = sext i8 %.01 to i32\l  %25 = sub nsw i32 %24, 48\l  %26 = add nsw i32 %23, %25\l  br label %11, !llvm.loop !6\l}"];
+	Node0x561f77eca520 -> Node0x561f77eca3f0;
+	Node0x561f77eca940 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70", fontname="Courier",label="{27:\l|  br label %28\l}"];
+	Node0x561f77eca940 -> Node0x561f77ecbc50;
+	Node0x561f77ecbc50 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{28:\l|  %.03 = phi i32 [ 2, %27 ], [ %43, %42 ]\l  %.0 = phi i32 [ 0, %27 ], [ %.1, %42 ]\l  %29 = icmp slt i32 %.03, %0\l  br i1 %29, label %30, label %44\l|{<s0>T|<s1>F}}"];
+	Node0x561f77ecbc50:s0 -> Node0x561f77ecc000;
+	Node0x561f77ecbc50:s1 -> Node0x561f77ecc0a0;
+	Node0x561f77ecc000 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{30:\l|  %31 = sext i32 %.03 to i64\l  %32 = getelementptr inbounds ptr, ptr %1, i64 %31\l  %33 = load ptr, ptr %32, align 8\l  %34 = call i32 @chmod(ptr noundef %33, i32 noundef %.02) #6\l  %35 = icmp slt i32 %34, 0\l  br i1 %35, label %36, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x561f77ecc000:s0 -> Node0x561f77ecc5b0;
+	Node0x561f77ecc000:s1 -> Node0x561f77ecc610;
+	Node0x561f77ecc5b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d0473d70", fontname="Courier",label="{36:\l|  %37 = add nsw i32 %.0, 1\l  %38 = sext i32 %.03 to i64\l  %39 = getelementptr inbounds ptr, ptr %1, i64 %38\l  %40 = load ptr, ptr %39, align 8\l  call void @perror(ptr noundef %40) #7\l  br label %41\l}"];
+	Node0x561f77ecc5b0 -> Node0x561f77ecc610;
+	Node0x561f77ecc610 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{41:\l|  %.1 = phi i32 [ %37, %36 ], [ %.0, %30 ]\l  br label %42\l}"];
+	Node0x561f77ecc610 -> Node0x561f77ecbd50;
+	Node0x561f77ecbd50 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870", fontname="Courier",label="{42:\l|  %43 = add nsw i32 %.03, 1\l  br label %28, !llvm.loop !8\l}"];
+	Node0x561f77ecbd50 -> Node0x561f77ecbc50;
+	Node0x561f77ecc0a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70", fontname="Courier",label="{44:\l|  call void @exit(i32 noundef %.0) #5\l  unreachable\l}"];
+}

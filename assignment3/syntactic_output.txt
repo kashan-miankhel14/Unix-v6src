@@ -1,0 +1,166 @@
+=== Starting Syntactic Analysis ===
+
+AST: Variable Declaration - i
+AST: Variable Declaration - m
+AST: Variable Declaration - c
+AST: Variable Declaration - count
+AST: Comparison - LT
+AST: Function Call - printf
+AST: Expression Statement
+AST: Function Call - exit
+AST: Expression Statement
+AST: Compound Statement
+AST: IF Statement (no else)
+AST: Assignment
+AST: Expression Statement
+AST: Assignment
+AST: Expression Statement
+AST: Comparison - NE
+AST: Comparison - LT
+AST: Comparison - GT
+AST: Logical OR
+AST: Function Call - printf
+AST: Expression Statement
+AST: Function Call - exit
+AST: Expression Statement
+AST: Compound Statement
+AST: IF Statement (no else)
+AST: Binary Op - Mul
+AST: Binary Op - Sub
+AST: Binary Op - Add
+AST: Assignment
+AST: Expression Statement
+AST: Assignment
+AST: Expression Statement
+AST: Compound Statement
+AST: WHILE Statement
+AST: Assignment
+AST: Expression Statement
+AST: Assignment
+AST: Comparison - LT
+AST: Binary Op - Add
+AST: Assignment
+AST: Function Call - chmod
+AST: Comparison - LT
+AST: Binary Op - Add
+AST: Assignment
+AST: Expression Statement
+AST: Function Call - perror
+AST: Expression Statement
+AST: Compound Statement
+AST: IF Statement (no else)
+AST: Compound Statement
+AST: FOR Statement
+AST: Function Call - exit
+AST: Expression Statement
+AST: Compound Statement
+AST: Function Declaration - main
+AST: Declaration added to program
+
+=== AST Structure ===
+[Function: main]
+  [Param: argc]
+    [Type: primitive]
+  [Param: argv]
+    [Type: primitive]
+  [CompoundStmt]
+    [VarDecl: i]
+      [Type: primitive]
+    [VarDecl: m]
+      [Type: primitive]
+    [VarDecl: c]
+      [Type: primitive]
+    [VarDecl: count]
+      [Type: primitive]
+    [If]
+      [LT: <]
+        [Identifier: argc]
+        [Number: 3]
+      [CompoundStmt]
+        [ExprStmt]
+          [FunctionCall: printf]
+            [String: "arg count"]
+        [ExprStmt]
+          [FunctionCall: exit]
+            [Number: 1]
+    [ExprStmt]
+      [Assign: =]
+        [Identifier: c]
+        [Identifier: argv]
+    [ExprStmt]
+      [Assign: =]
+        [Identifier: m]
+        [Number: 0]
+    [While]
+      [NE: !=]
+        [Identifier: c]
+        [Number: 0]
+      [CompoundStmt]
+        [If]
+          [LogicalOr: ||]
+            [LT: <]
+              [Identifier: c]
+              [Number: 48]
+            [GT: >]
+              [Identifier: c]
+              [Number: 55]
+          [CompoundStmt]
+            [ExprStmt]
+              [FunctionCall: printf]
+                [String: "bad mode"]
+            [ExprStmt]
+              [FunctionCall: exit]
+                [Number: 1]
+        [ExprStmt]
+          [Assign: =]
+            [Identifier: m]
+            [Add: +]
+              [Mul: *]
+                [Identifier: m]
+                [Number: 8]
+              [Sub: -]
+                [Identifier: c]
+                [Number: 48]
+        [ExprStmt]
+          [Assign: =]
+            [Identifier: c]
+            [Number: 1]
+    [ExprStmt]
+      [Assign: =]
+        [Identifier: count]
+        [Number: 0]
+    [For]
+      [ForInit]
+        [Assign: =]
+          [Identifier: i]
+          [Number: 2]
+        [ForCond-Inc]
+          [LT: <]
+            [Identifier: i]
+            [Identifier: argc]
+          [Assign: =]
+            [Identifier: i]
+            [Add: +]
+              [Identifier: i]
+              [Number: 1]
+      [CompoundStmt]
+        [If]
+          [LT: <]
+            [FunctionCall: chmod]
+              [Identifier: argv]
+              [Identifier: m]
+            [Number: 0]
+          [CompoundStmt]
+            [ExprStmt]
+              [Assign: =]
+                [Identifier: count]
+                [Add: +]
+                  [Identifier: count]
+                  [Number: 1]
+            [ExprStmt]
+              [FunctionCall: perror]
+                [Identifier: argv]
+    [ExprStmt]
+      [FunctionCall: exit]
+        [Identifier: count]
+AST dot file generated: ast.dot
